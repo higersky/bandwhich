@@ -28,6 +28,7 @@ impl Resolver {
                     protocol: Protocol::Udp,
                     tls_dns_name: None,
                     trust_nx_responses: false,
+                    bind_addr: None 
                 };
                 config.add_name_server(nameserver_config);
                 TokioAsyncResolver::new(config, options, runtime)?

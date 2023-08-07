@@ -41,7 +41,7 @@ impl<'a> Layout<'a> {
                     .direction(direction)
                     .margin(0)
                     .constraints([Constraint::Percentage(50), Constraint::Percentage(50)].as_ref())
-                    .split(last_rect);
+                    .split(last_rect).to_vec();
                 layout.append(&mut halves);
                 layout
             })

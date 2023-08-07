@@ -19,40 +19,41 @@ license = "MIT"
 exclude = ["src/tests/*", "demo.gif"]
 
 [dependencies]
-pnet = "0.26.0"
-ipnetwork = "0.16.0"
-tui = { version = "0.16", default-features = false, features = ["crossterm"]}
-crossterm = "0.20"
+pnet = { version = "0.34.0", features = ["std"]}
+ipnetwork = "0.20.0"
+tui = { package = "ratatui", version = "0.22.0", default-features = false, features = ["crossterm"]}
+crossterm = "0.27"
 structopt = "0.3"
 anyhow = "1.0"
 thiserror = "1.0"
 chrono = "0.4"
 regex = "1"
 lazy_static = "1.4.0"
-tokio = { version = "1.0", features = ["rt", "sync"] }
-trust-dns-resolver = "0.20.3"
+tokio = { version = "1.29", features = ["rt", "sync"] }
+trust-dns-resolver = "0.22.0"
 async-trait = "0.1"
-unicode-width = "0.1.8"
+unicode-width = "0.1.10"
 resolv-conf = "0.7.0"
 
 [target.'cfg(target_os="windows")'.dependencies]
 netstat2 = "0.9.1"
-sysinfo = "0.20.3"
+sysinfo = "0.29.7"
 
 [target.'cfg(target_os="linux")'.dependencies]
-procfs = "0.10.1"
+procfs = "0.12"
 
 [dev-dependencies]
-insta = "0.12.0"
-pnet_base = "0.26.0"
-cargo-insta = "0.11.0"
-packet-builder = "0.5.0"
+insta = "1.31.0"
+pnet_base = "0.34.0"
+cargo-insta = "1.31.0"
+packet-builder = "0.7.0"
 regex = "1"
 
 [target.'cfg(target_os="windows")'.build-dependencies]
-http_req = "0.7.0"
-zip = "0.5.6"
+http_req = "0.9.2"
+zip = "0.6.6"
 
 [profile.release]
 lto = 'fat'
 codegen-units = 1
+strip = true
